@@ -1,40 +1,32 @@
-select * from orders;
-
-select * from customers;
-
 -- checking datatypes
 describe customers;
 
 -- chnaging data type for customer_id
 alter table customers modify customer_id varchar(20) not null;
 
-
-
 -- making customer_id the primary key
 alter table customers add primary key (customer_id); 
-
+-- checking data types
 describe customers;
 
 select * from customers;
-
+-- changing data type
 alter table customers modify signup_date date;
 
-describe customers;
-
 select * from orders;
+-- checking data type
 describe orders;
-
+--changing data type for customer id in the orers table
 alter table orders modify customer_id varchar(20) not null;
+-- changing data type of the order id in the orders table
 alter table orders modify order_id varchar(20) not null;
-
+--making the order_id a primary keu
 alter table orders add primary key (order_id); 
-alter table orders add primary key (order_id); 
-
+--making the customer_id a foreign key
 alter table orders
 add constraint lg_customers
 foreign key (customer_id)
 references customers(customer_id);
-describe orders;
 alter table orders modify order_date date;
 describe orders;
 
